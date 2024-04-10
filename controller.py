@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import munch
-from pykube import KubeConfig, HTTPClient, object_factory, all
+from pykube import KubeConfig, HTTPClient, object_factory, all, Pod
 
 # load Kubernetes configuration from the default location
 api = HTTPClient(KubeConfig.from_env())
@@ -14,4 +14,13 @@ for a in agents:
     print ("ChaosAgent object named {} with specs:{}".format(a, a.obj["spec"]))
 
 
+def main():
+    """ operator aka custom loop """
+    while True:
+        for pod in Pod.objects(api).filter(namespace=all,selector={'target': 'yes'}):
+            print(pod.namespace, pod.name)
 
+
+if __name__ == "__main__":
+    print ("This is blackadder version 1.0.0")
+    main()
