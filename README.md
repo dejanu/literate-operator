@@ -15,6 +15,7 @@ python3 -m venv .venv
 . .venv/bin/activate
 pip install -r requirements.txt
 ```
+* Docker operator image: `docker pull dejanualex/literate-operator:1.0`
 
 ## Steps
 
