@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-operator
+  template:
+    metadata:
+      labels:
+        app: demo-operator
+    spec:
+      serviceAccountName: demo-operator
+      containers:
+      - name: operator
+        # this image needs have been pushed to some Docker registry!
+        image: dejanualex/literate-operator:1.0
+        resources:
+          limits:
+            memory: 50Mi
+          requests:
+            cpu: 5m
+            memory: 50Mi
+        securityContext:
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
