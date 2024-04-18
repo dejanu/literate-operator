@@ -1,3 +1,7 @@
+# A word about operators
+
+A **operator** is a set of **CRD**s and a a set of **controllers**.
+
 # literate-operator
 K8S operator that kills/restarts/wip pods with label `{'target': 'yes'}`
 Create some targets:
@@ -32,3 +36,7 @@ kubectl get ca
 ## Sources
 
 * [pykube](https://pykube.readthedocs.io/en/latest/index.html) for writing the [operator](https://pykube.readthedocs.io/en/latest/howtos/write-an-operator.html)
+
+* Framework for building Operators… [Kubebuilder](https://github.com/kubernetes-sigs/kubebuilder) is a good option since [Operator SDK](https://sdk.operatorframework.io/) uses [Kubebuilder under the hood](https://sdk.operatorframework.io/docs/faqs/#what-are-the-the-differences-between-kubebuilder-and-operator-sdk).
+
+* The registry for K8S operators [OperatorHub.io](https://operatorhub.io/)
