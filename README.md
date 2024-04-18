@@ -1,6 +1,8 @@
 # A word about operators
 
-A **operator** is a set of **CRD**s and a a set of **controllers**.
+* Operators are custom controllers...more exactly: A **operator** is a set of **CRD**s and a a set of **controllers**.
+* Controllers are the core of Kubernetes, and of any operator.
+* The OLM (Operator Lifecycle Manager) helps users install, update, and manage operators in the cluster.
 
 # literate-operator
 K8S operator that kills/restarts/wip pods with label `{'target': 'yes'}`
