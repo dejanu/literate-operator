@@ -4,7 +4,7 @@ metadata:
   name: chaosagents.blackadder.io
 spec:
   group: blackadder.io
-  scope: Cluster  # a CRD can also be Namespaced
+  scope: Cluster  # /apis/GROUP/VERSION/* due to cluster scoped
   names:
     plural: chaosagents
     singular: chaosagent
