@@ -9,8 +9,8 @@ K8S operator that kills/restarts/wip pods with label `{'target': 'yes'}`
 Create some targets:
 ```bash
 # spin up some naked pods
-kubectl run pod1 --image=ngnix --labels='target=yes'
-kubectl run pod2 --image=ngnix --labels='target=no'
+kubectl run pod1 --image=nginx:stable-perl --port=80 --labels='target=yes'
+kubectl run pod2 --image=nginx:stable-perl --port=80 --labels='target=no'
 ```
 
 ## Local setup

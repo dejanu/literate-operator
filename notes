@@ -1,0 +1,20 @@
+# documentation at your finger tips
+kubect explain po
+kubectl explain po.status.phase
+kubectl explain po --recursive
+
+# compute abstraction
+top -o=MEM
+kubectl top po --sort-by=cpu -A
+
+# peak at the API behind the scenes
+kubectl top no -v=6
+
+# check API Resources aka Kinds
+kubectl api-resources
+
+# get all API Resources/Kinds for a specific group  i.e metrics.k8s.io
+kubectl api-resources --api-group=metrics.k8s.io
+
+# list of API services that are available and managed by the API server
+kubectl get apiservices
