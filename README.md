@@ -9,7 +9,7 @@ K8S operator that aggregates logs from all pods with label defined in the `targe
 Create some targets:
 ```bash
 # spin up some naked pods
-kubectl run pod1 --image=nginx:stable-perl --port=80 --labels='target=yes'
+kubectl run pod1 --image=nginx:stable-perl --port=80 --labels='target=kcd'
 kubectl run pod2 --image=nginx:stable-perl --port=80 --labels='target=no'
 ```
 

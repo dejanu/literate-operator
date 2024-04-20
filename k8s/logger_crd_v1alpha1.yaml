@@ -4,7 +4,7 @@ metadata:
   name: logdrains.kcd.io
 spec:
   group: kcd.io
-  scope: Cluster  # a CRD can also be Namespaced
+  scope: Cluster  # can also be Namespaced
   names:
     plural: logdrains
     singular: logdrain
