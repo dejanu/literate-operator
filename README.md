@@ -5,7 +5,7 @@
 * The OLM (Operator Lifecycle Manager) helps users install, update, and manage operators in the cluster.
 
 # literate-operator
-K8S operator that kills/restarts/wip pods with label `{'target': 'yes'}`
+K8S operator that aggregates logs from all pods with label defined in the `target`` filed of `LogDrain` object
 Create some targets:
 ```bash
 # spin up some naked pods

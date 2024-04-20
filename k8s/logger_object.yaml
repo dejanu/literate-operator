@@ -1,0 +1,7 @@
+apiVersion: kcd.io/v1alpha1
+kind: LogDrain
+metadata:
+  name: demold
+spec:
+  target: "kcd"
+
