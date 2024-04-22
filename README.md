@@ -10,7 +10,8 @@ Create some targets:
 ```bash
 # spin up some naked pods
 kubectl run pod1 --image=nginx:stable-perl --port=80 --labels='target=kcd'
-kubectl run pod2 --image=nginx:stable-perl --port=80 --labels='target=no'
+
+kubectl run pod3 --image=dejanualex/python_hello:1.0  --labels='target=kcd'
 ```
 
 ## Local setup

@@ -3,7 +3,7 @@ kind: CustomResourceDefinition
 metadata:
   name: logdrains.kcd.io
 spec:
-  group: kcd.io
+  group: kcd.io # /apis/<group>/<version>
   scope: Cluster  # can also be Namespaced
   names:
     plural: logdrains
@@ -18,9 +18,11 @@ spec:
     schema:
       openAPIV3Schema:
         type: object
+        description: 
         properties:
           spec:
             type: object
+            description: Set the target label value to the desired value, for the operator to pick
             properties:
               target:
                 type: string

@@ -43,7 +43,7 @@ def main():
                         print("Scanning for target pods")
                 else:
                     for pod in ready_pods:
-                        print("Found the little fucker {1} in namespace {0}".format(pod.namespace, pod.name))
+                        print("Found the little POD --> {1} in namespace --> {0}".format(pod.namespace, pod.name))
                         for container in pod.obj["spec"]["containers"]:
                             container_log = pod.logs(
                             container=container["name"],
