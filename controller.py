@@ -41,10 +41,10 @@ def main():
                 ready_pods = filter(operator.attrgetter("ready"), target_pods)
                 # logger obj exists but no target pod exists
                 if not target_pods: #if list is empty
-                        print("Scanning for target pods")
+                        print("Scanning for target pods...")
                 else:
                     for pod in ready_pods:
-                        print("Found the little POD --> {1} in namespace --> {0}".format(pod.namespace, pod.name))
+                        print("Found it 👀 POD:{1} in namespace --> {0}".format(pod.namespace, pod.name))
                         for container in pod.obj["spec"]["containers"]:
                             container_log = pod.logs(
                             container=container["name"],
@@ -54,7 +54,5 @@ def main():
                             time.sleep(1)
                             for line in container_log.split("\n"):
                                 print(line)
-
-
 if __name__ == "__main__":
     main()

@@ -18,11 +18,11 @@ spec:
     schema:
       openAPIV3Schema:
         type: object
-        description: LogDrain is a resource for that allows the configuration of demo-operator
+        description: LogDrain is a resource that allows the configuration of demo-operator
         properties:
           spec:
             type: object
-            description: Specification for managing log aggregation to the designated drain
+            description: Specification for managing log aggregation to the demo-operator drain
             properties:
               target:
                 description: Set the target to the desired label value, for the operator to pick
