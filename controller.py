@@ -1,8 +1,9 @@
 #!/usr/bin/env python
+
+import time
 import operator
 from pykube import KubeConfig, HTTPClient, object_factory, all, Pod
 # from deploy import deploy_template
-import time
 
 # load Kubernetes configuration from the default location
 api = HTTPClient(KubeConfig.from_env())
@@ -15,7 +16,7 @@ def read_ld_config():
     if loggers:
         # just for first logger object
         for a in loggers:
-            print ("💡LogDrain object named {} with specs:{}".format(a, a.obj["spec"]))
+            print ("😍 LogDrain object named {} with specs:{}".format(a, a.obj["spec"]))
             # return the value of target 
             return [a.obj["spec"].get("target") for a in loggers][0]
     else:
@@ -33,7 +34,7 @@ def main():
             print("No loggerdrain object found....")
         else:
             for a in loggers:
-                print ("💡LogDrain object named {} with specs:{}".format(a, a.obj["spec"]))
+                print ("😍 LogDrain object named {} with specs:{}".format(a, a.obj["spec"]))
                 # get value of target label
                 value_for_taget_label = [a.obj["spec"].get("target") for a in loggers][0]
                 target_pods = Pod.objects(api).filter(namespace=all,selector={'target': value_for_taget_label})
@@ -57,4 +58,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
