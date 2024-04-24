@@ -36,3 +36,6 @@ another_naked_po:
 
 # list of API services that are available and managed by the API server
 # --> kubectl get apiservices
+
+# Expose API: create a proxy server or application-level gateway between localhost and the Kubernetes API server
+# kubectl proxy --port=8080
