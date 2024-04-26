@@ -16,7 +16,7 @@ spec:
       containers:
       - name: operator
         # this image needs have been pushed to some Docker registry!
-        image: dejanualex/literate-operator:1.0
+        image: dejanualex/literate-operator:1.26
         resources:
           limits:
             memory: 50Mi
