@@ -7,23 +7,6 @@ from pykube import KubeConfig, HTTPClient, object_factory, all, Pod
 
 # load Kubernetes configuration from the default location
 api = HTTPClient(KubeConfig.from_env())
-
-def read_ld_config():
-    # Dynamically builds a Python class for the given Kubernetes object in an API(api,group_version,kind)
-    LogDrain = object_factory(api, "kcd.io/v1alpha1", "LogDrain")
-    # retrieve ld config from pykube.query.Query objects
-    loggers = LogDrain.objects(api, namespace=all)
-    if loggers:
-        # just for first logger object
-        for a in loggers:
-            print ("😍 LogDrain object named {} with specs:{}".format(a, a.obj["spec"]))
-            # return the value of target 
-            return [a.obj["spec"].get("target") for a in loggers][0]
-    else:
-        print("No loggerdrain object found....")
-        return None
-
-
 def main():
     """ operator aka custom loop """
     LogDrain = object_factory(api, "kcd.io/v1alpha1", "LogDrain")
