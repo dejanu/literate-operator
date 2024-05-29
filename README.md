@@ -5,7 +5,7 @@
 * The OLM (Operator Lifecycle Manager) helps users install, update, and manage operators in the cluster.
 
 # literate-operator
-K8S operator that aggregates logs from all pods with label defined in the `target`` filed of `LogDrain` object
+K8S operator that aggregates logs from all pods with label defined in the `target` field of `LogDrain` object
 Create some targets:
 ```bash
 # spin up some naked pods
@@ -30,7 +30,7 @@ pip install -r requirements.txt
 # Apply crds : 
 kubectl apply -f k8s
 # Check resources: 
-kubectl api-resources | grep kcd
+kubectl api-resources | grep dev
 # Explain objects
 kubectl get ld
 kubectl explain logdrain

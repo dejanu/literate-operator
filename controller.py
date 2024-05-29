@@ -9,7 +9,7 @@ from pykube import KubeConfig, HTTPClient, object_factory, all, Pod
 api = HTTPClient(KubeConfig.from_env())
 def main():
     """ operator aka custom loop """
-    LogDrain = object_factory(api, "kcd.io/v1alpha1", "LogDrain")
+    LogDrain = object_factory(api, "dev.io/v1alpha1", "LogDrain")
     while True:
         # retrieve ld config from pykube.query.Query objects
         loggers = LogDrain.objects(api, namespace=all)
