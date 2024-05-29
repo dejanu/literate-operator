@@ -1,4 +1,4 @@
-apiVersion: kcd.io/v1alpha1
+apiVersion: dev.io/v1alpha1
 kind: LogDrain
 metadata:
   name: demold
