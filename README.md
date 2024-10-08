@@ -1,6 +1,7 @@
 # A word about operators
 
 * Operators are custom controllers...more exactly: A **operator** is a set of **CRD**s and a a set of **controllers**.
+* When you create a new [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/), the Kubernetes API Server creates a new RESTful resource path for each version you specify.
 * Controllers are the core of Kubernetes, and of any operator.
 * The OLM (Operator Lifecycle Manager) helps users install, update, and manage operators in the cluster.
 
