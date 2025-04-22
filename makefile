@@ -5,23 +5,28 @@ documentation:
 	@echo "api_group"
 	@echo "ld_object"
 	@echo "naked_po"
-	@echo "another_naked_po"
 nodes_api:
 	@echo "kubectl get --raw /apis/metrics.k8s.io/v1beta1/nodes"
 ld_object:
 	@echo "apiVersion: dev.io/v1alpha1 \nkind: LogDrain \nmetadata: \n  name: demold \nspec: \n  target: \"INSERT_HERE\" "
 naked_po:
-	@echo "kubectl run pod1 --image=nginx:stable-perl --port=80 --labels='target=kcd'"
+	@echo "kubectl run pod1 --image=nginx:stable-perl --port=80 --labels='target=stackconf'"
+	@echo "kubectl run pod2 --image=dejanualex/pythonhello:1.0  --labels='target=stackconf'"
 api_group:
 	@echo "kubectl api-resources --api-group=metrics.k8s.io"
 	@echo "kubectl get --raw /apis/metrics.k8s.io/v1beta1/pods"
-another_naked_po:
-	@echo "kubectl run pod2 --image=dejanualex/python_hello:1.0  --labels='target=kcd'"
+
 
 # --> documentation at your finger tips
 # kubect explain po
 # kubectl explain po.status.phase
 # kubectl explain po --recursive
+
+# --> glance at the API
+# kubectl get po -v=6
+
+# --> Expose API: create a proxy server or application-level gateway between localhost and the k8s API server
+# kubectl proxy --port=8080
 
 # --> compute abstraction: top -o cpu
 # kubectl top po --sort-by=cpu --containers -A
@@ -38,5 +43,4 @@ another_naked_po:
 # list of API services that are available and managed by the API server
 # --> kubectl get apiservices
 
-# Expose API: create a proxy server or application-level gateway between localhost and the Kubernetes API server
-# kubectl proxy --port=8080
+
