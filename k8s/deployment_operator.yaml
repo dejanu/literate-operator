@@ -17,12 +17,12 @@ spec:
       - name: operator
         # this image needs have been pushed to some Docker registry!
         image: dejanualex/literate-operator:1.27
-        resources:
-          limits:
-            memory: 50Mi
-          requests:
-            cpu: 5m
-            memory: 50Mi
+        # resources:
+        #   limits:
+        #     memory: 50Mi
+        #   requests:
+        #     cpu: 5m
+        #     memory: 50Mi
         securityContext:
           readOnlyRootFilesystem: true
           runAsNonRoot: true

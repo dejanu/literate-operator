@@ -10,9 +10,12 @@ K8S operator that aggregates logs from all pods with label defined in the `targe
 Create some targets:
 ```bash
 # spin up some naked pods
-kubectl run pod1 --image=nginx:stable-perl --port=80 --labels='target=kcd'
+kubectl run pod1 --image=nginx:stable-perl --port=80 --labels='target=stackconf'
 
-kubectl run pod3 --image=dejanualex/python_hello:1.0  --labels='target=kcd'
+kubectl run pod2 --image=dejanualex/pythonhello:1.0  --labels='target=stackconf'
+kubectl expose po pod2 --name=websvc --type=LoadBalancer --port=8888 --target-port=8888
+
+kubectl get po --show-labels
 ```
 
 ## Local setup
@@ -20,7 +23,7 @@ kubectl run pod3 --image=dejanualex/python_hello:1.0  --labels='target=kcd'
 ```bash
 # create .venv virtual environment
 python3 -m venv .venv
-. .venv/bin/activate
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 * Docker operator image: `docker pull dejanualex/literate-operator:1.26`

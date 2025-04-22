@@ -3,5 +3,5 @@ kind: LogDrain
 metadata:
   name: demold
 spec:
-  target: "kcd"
+  target: "stackconf" # this is the label value that the operator will look for
 
