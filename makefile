@@ -7,14 +7,17 @@ documentation:
 	@echo "naked_po"
 nodes_api:
 	@echo "kubectl get --raw /apis/metrics.k8s.io/v1beta1/nodes"
+api_group:
+	@echo "kubectl api-resources --api-group=metrics.k8s.io"
+	@echo "kubectl get --raw /apis/metrics.k8s.io/v1beta1/pods"
 ld_object:
 	@echo "apiVersion: dev.io/v1alpha1 \nkind: LogDrain \nmetadata: \n  name: demold \nspec: \n  target: \"INSERT_HERE\" "
 naked_po:
 	@echo "kubectl run pod1 --image=nginx:stable-perl --port=80 --labels='target=stackconf'"
-	@echo "kubectl run pod2 --image=dejanualex/pythonhello:1.0  --labels='target=stackconf'"
-api_group:
-	@echo "kubectl api-resources --api-group=metrics.k8s.io"
-	@echo "kubectl get --raw /apis/metrics.k8s.io/v1beta1/pods"
+	@echo "kubectl run pod2 --image=dejanualex/gohello:1.0  --labels='target=stackconf'"
+svc:
+	@echo "kubectl expose pod pod2 --name=mysvc --type=LoadBalancer --port=8888 --target-port=8888"
+
 
 
 # --> documentation at your finger tips
