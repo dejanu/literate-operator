@@ -33,8 +33,11 @@ pip install -r requirements.txt
 ```bash
 # Apply crds : 
 kubectl apply -f k8s
-# Check resources: 
+
+# Check api-group: 
 kubectl api-resources | grep dev
+kubectl api-resources --api-group=dev.io
+
 # Explain objects
 kubectl get ld
 kubectl explain logdrain
