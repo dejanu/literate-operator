@@ -13,6 +13,7 @@ go run main.go
 
 # build for specific OS/ARCH
 go build -o go-controller main.go
+
 # Mac ARM
 GOOS=darwin GOARCH=arm64 go build -o bin/hello-world-darwin-arm64
 
@@ -24,10 +25,9 @@ go get k8s.io/client-go@latest
 go get k8s.io/apimachinery@latest
 
 # build image
-docker build -t alexdejanu/go-controller:1.0 .
-docker push alexdejanu/go-controller:1.0
+docker build -t dejanualex/go-controller:1.0 .
+docker push dejanualex/go-controller:1.0
 ```
-
 
 
 ### Operator Purpose

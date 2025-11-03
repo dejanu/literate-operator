@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: go-controller
+  name: qos-controller
   namespace: default
   labels:
-    app: go-controller
+    app: qos-controller
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: go-controller
+      app: qos-controller
   template:
     metadata:
       labels:
-        app: go-controller
+        app: qos-controller
     spec:
       serviceAccountName: go-controller-sa
       containers:
-      - name: go-controller
-        image: alexdejanu/go-controller:1.1
+      - name: qos-controller
+        image: dejanualex/go-controller:1.1
         imagePullPolicy: IfNotPresent
         resources:
           requests:
