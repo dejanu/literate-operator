@@ -1,0 +1,6 @@
+apiVersion: dev.io/v1alpha1
+kind: Qos
+metadata:
+  name: qosfilter
+spec:
+  target: "Burstable"  # Options: BestEffort, Burstable, Guaranteed
