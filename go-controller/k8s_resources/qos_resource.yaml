@@ -3,4 +3,4 @@ kind: Qos
 metadata:
   name: qosfilter
 spec:
-  target: "Burstable"  # Options: BestEffort, Burstable, Guaranteed
+  target: "Guaranteed"  # Options: BestEffort, Burstable, Guaranteed

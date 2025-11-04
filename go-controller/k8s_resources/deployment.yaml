@@ -18,7 +18,7 @@ spec:
       serviceAccountName: go-controller-sa
       containers:
       - name: qos-controller
-        image: dejanualex/go-controller:1.1
+        image: dejanualex/go-controller:1.0 
         imagePullPolicy: IfNotPresent
         resources:
           requests:

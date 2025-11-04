@@ -25,7 +25,7 @@ go get k8s.io/client-go@latest
 go get k8s.io/apimachinery@latest
 
 # build image
-docker build -t dejanualex/go-controller:1.0 .
+docker build -t dejanualex/go-controller:1.0.
 docker push dejanualex/go-controller:1.0
 ```
 
@@ -41,7 +41,8 @@ docker push dejanualex/go-controller:1.0
 ```bash
 # create deployments with different QoS classes
 kubectl create deployment demo --image=nginx
-kubectl apply -f demo-guaranteed.yaml
+
+
 
 # check QoS class
 kubectl get po -ojsonpath={.items[*].status.qosClass}
@@ -51,15 +52,14 @@ kubectl get po -ojsonpath={.items[*].status.qosClass}
 
 ```bash
 # deploy
-kubectl apply -f k8s_obj/go-operator-deployment.yaml
-kubectl apply -f k8s_obj/rbac.yaml
-
+kubectl apply -f k8s_resources/rbac.yaml
+kubectl apply -f k8s_resources/deployment.yaml
 
 # check the api group
 kubectl api-resources --api-group=dev.io
 
 # extend the APi
-kubectl apply -f k8s_obj/qos_crd_v1alpha1.yaml
+kubectl apply -f k8s_resources/qos_crd_v1alpha1.yaml
 
 # check the custom resource definition
 kubectl explain qs.spec
