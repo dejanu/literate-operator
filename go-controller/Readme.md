@@ -41,9 +41,7 @@ docker push dejanualex/go-controller:1.0
 ```bash
 # create deployments with different QoS classes
 kubectl create deployment demo --image=nginx
-
-
-
+kubectl app
 # check QoS class
 kubectl get po -ojsonpath={.items[*].status.qosClass}
 ```
