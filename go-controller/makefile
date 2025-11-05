@@ -1,6 +1,7 @@
 .DEFAULT_GOAL := documentation
 
 documentation:
+	@echo "SHOW OBJECTS 😉"
 	@echo "deploy"
 	@echo "qos"
 	@echo "apigroup"

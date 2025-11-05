@@ -1,6 +1,9 @@
 .DEFAULT_GOAL := documentation
 
 documentation:
+	@echo "showapi"
+	@echo "nakedpod"
+	@echo "rawuri"
 	@echo "curl"
 	@echo "apiserver"
 	@echo "sa"
@@ -8,7 +11,15 @@ documentation:
 	@echo "token"
 	@echo "ca"
 	@echo "cleanup"
-	@echo "nakedpod"
+
+showapi:
+	@echo "kubectl api-resources"
+	
+rawuri:
+	@echo "kubectl get --raw /api/v1/namespaces/default/pods"
+
+nakedpod:
+	@echo "kubectl run demo --image=nginx"
 
 curl:
 	@echo "curl --cacert ca.crt --header \"Authorization: Bearer \$$TOKEN\" \$$API_SERVER/api/v1/namespaces/default/pods"
@@ -33,6 +44,3 @@ ca:
 cleanup:
 	@echo "kubectl delete sa api-access"
 	@echo "kubectl delete clusterrolebinding api-access-binding"
-
-nakedpod:
-	@echo "kubectl run po demo --image=nginx"

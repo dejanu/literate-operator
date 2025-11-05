@@ -54,7 +54,7 @@ func main() {
 		} else {
 			fmt.Printf("QoS filter active: showing only pods with QoS class '%s' 👌 \n", targetQoS)
 
-			// List pods in the default namespace
+			// call k8s api for pods
 			pods, err := clientset.CoreV1().Pods("default").List(context.TODO(), metav1.ListOptions{})
 			if err != nil {
 				log.Printf("Error listing pods: %v", err)
