@@ -25,7 +25,7 @@ go get k8s.io/client-go@latest
 go get k8s.io/apimachinery@latest
 
 # build image
-docker build -t dejanualex/go-controller:1.0.
+docker buildx build --platform linux/amd64,linux/arm64 -t dejanualex/go-controller:1.1 .
 docker push dejanualex/go-controller:1.0
 ```
 
