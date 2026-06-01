@@ -26,7 +26,7 @@ go get k8s.io/apimachinery@latest
 
 # build image
 docker buildx build --platform linux/amd64,linux/arm64 -t dejanualex/go-controller:1.1 .
-docker push dejanualex/go-controller:1.0
+docker push dejanualex/go-controller:1.1
 ```
 
 
@@ -35,13 +35,14 @@ docker push dejanualex/go-controller:1.0
 * What the controller does:
     * Looks for QoS custom resources: Uses the dynamic client to query for `qos.dev.io/v1alpha1` resources
     * Extracts target QoS class: Reads the `spec.target` field from the custom resource
-    * Filters pods: Only displays pods that match the specified QoS class
+    * Filters pods: Only displays pods that match the specified QoS class i.e. `-ojsonpath='{.status.qosClass}`
     * Graceful fallback: If no QoS resource exists, does not show any pods
 
 ```bash
 # create deployments with different QoS classes
 kubectl create deployment demo --image=nginx
-kubectl app
+kubectl apply -f  demo-guaranteed.yaml
+
 # check QoS class
 kubectl get po -ojsonpath={.items[*].status.qosClass}
 ```
